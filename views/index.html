@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	
+	<meta charset="utf-8">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<!-- Favicons -->
+	<link rel="apple-touch-icon" href="./assets/img/kit/free/apple-icon.png">
+	<link rel="icon" href="./assets/img/kit/free/favicon.png">
+	<title>
+		DBMS-MiniProject-1
+	</title>
+	
+
+	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
+	<link rel="stylesheet" href="./assets/css/material-kit.css?v=2.0.2">
+
+	<style>
+		#myDIV {
+			border-radius: 25px;
+			background-color: lightgrey;
+			width: 700px;
+			padding: 25px;
+			margin: 25px;
+			margin-left: auto;
+			margin-right: auto;
+			box-shadow: 5px 10px #adad85;
+		}
+		.modal {
+			display: none; /* Hidden by default */
+			position: fixed; /* Stay in place */
+			z-index: 1; /* Sit on top */
+			padding-top: 100px; /* Location of the box */
+			left: 0;
+			top: 0;
+			width: 100%; /* Full width */
+			height: 100%; /* Full height */
+			overflow: auto; /* Enable scroll if needed */
+			background-color: rgb(0,0,0); /* Fallback color */
+			background-color: rgba(0,0,0,0.6); /* Black w/ opacity */
+		}
+		.modal-content {
+			background-color: #fefefe;
+			margin: auto;
+			padding: 20px;
+			border: 1px solid #888;
+			width: 80%;
+		}
+
+		.close {
+			color: #aaaaaa;
+			float: right;
+			font-size: 28px;
+			font-weight: bold;
+		}
+
+		.close:hover,
+		.close:focus {
+			color: #000;
+			text-decoration: none;
+			cursor: pointer;
+		}
+	</style>
+
+</head>
+
+<body class="index-page ">
+	
+	<nav class="navbar navbar-color-on-scroll fixed-top navbar-expand-lg " color-on-scroll="10" id="sectionsNav">
+		<div class="container">
+			
+			<div class="navbar-translate">
+				<a class="navbar-brand" href="/"><i class="material-icons">home</i> Home</a>
+			</div>
+
+			<div class="collapse navbar-collapse">
+				<ul class="navbar-nav ml-auto">
+					<li class="dropdown nav-item">
+						<a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+							<i class="material-icons">playlist_add</i> Insert
+						</a>
+						<div class="dropdown-menu dropdown-with-icons">
+							<button id='emp_insert' class="dropdown-item">
+								<i class="material-icons">account_circle</i> Employee&emsp;&emsp;&emsp;&emsp;
+							</button>
+						   
+							<button id='cook_insert' class="dropdown-item">
+								<i class="material-icons">account_box</i> Cook&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+							</button>
+							
+							<button id='cs_insert' class="dropdown-item">
+								<i class="material-icons">accessibility</i> Cleaning Staff&emsp;&emsp;
+							</button>
+							
+							<button id='sg_insert' class="dropdown-item">
+								<i class="material-icons">perm_identity</i> Security Guard&emsp;&emsp;
+							</button>
+						</div>
+					</li>
+					<li class="dropdown nav-item">
+						<a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+							<i class="material-icons">search</i> Search
+						</a>
+						<div class="dropdown-menu dropdown-with-icons">
+							<button id="emp_search" class="dropdown-item">
+								<i class="material-icons">account_circle</i> Employee&emsp;
+							</button>
+						   
+							<button id="cook_search" value="Cook" class="dropdown-item">
+								<i class="material-icons">account_box</i> Cook&emsp;&emsp;&emsp;&emsp;
+							</button>
+							
+							<button id="cs_search" value="Cleaning Staff" class="dropdown-item">
+								<i class="material-icons">accessibility</i> Cleaning Staff
+							</button>
+							
+							<button id="sg_search" value="Security Guard" class="dropdown-item">
+								<i class="material-icons">perm_identity</i> Security Guard
+							</button>
+						</div>
+					</li>
+					<li class="dropdown nav-item">
+						<a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+							<i class="material-icons">update</i> Update
+						</a>
+						<div class="dropdown-menu dropdown-with-icons">
+							<button id="emp_update" class="dropdown-item">
+								<i class="material-icons">account_circle</i> Employee&emsp;
+							</button>
+						</div>				  
+					</li>
+					<li class="dropdown nav-item">
+						<a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+							<i class="material-icons">delete</i> Delete
+						</a>
+						<div class="dropdown-menu dropdown-with-icons">
+							<button id="emp_delete" class="dropdown-item">
+								<i class="material-icons">account_circle</i> Employee&emsp;
+							</button>
+						   
+							<button id="cook_delete" value="Cook" class="dropdown-item">
+								<i class="material-icons">account_box</i> Cook&emsp;&emsp;&emsp;&emsp;
+							</button>
+							
+							<button id="cs_delete" value="Cleaning Staff" class="dropdown-item">
+								<i class="material-icons">accessibility</i> Cleaning Staff
+							</button>
+							
+							<button id="sg_delete" value="Security Guard" class="dropdown-item">
+								<i class="material-icons">perm_identity</i> Security Guard
+							</button>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+		
+	<div class="page-header header-filter clear-filter purple-filter" data-parallax="true" style="background-image: url('./assets/img/kit/bg2.jpg');">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-8 ml-auto mr-auto">
+					<div class="brand">
+						<h1>Mess Database Management Project</h1>
+						<h3>A Web-App using Nodejs and Mysql.</h3>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="main main-raised">
+		<div class="section section-basic">
+			<div class="container">
+				<h1 align="center">Welcome to the Mess Database!!</h1>
+				<div id="myModal" class="modal">
+				<div class="modal-content">
+				    <span id="close" class="close">&times;</span>
+				    <center><h3><b id='results'></b></h3></center>
+				</div>
+				</div>
+				<center>
+				<div id="myDIV" style="display:none">
+					
+					<div id="emp_block_insert" style="display:none">
+					</div>
+						
+					<div id="cook_block_insert" style="display:none">
+					</div>
+						
+					<div id="cs_block_insert" style="display:none">
+					</div>
+
+					<div id="sg_block_insert" style="display:none">	
+					</div>
+
+					<div id="emp_block_search" style="display:none">
+					</div>
+						
+					<div id="cook_block_search" style="display:none">
+					</div>
+						
+					<div id="cs_block_search" style="display:none">
+					</div>
+
+					<div id="sg_block_search" style="display:none">	
+					</div>
+
+					<div id="emp_block_update" style="display:none">
+					</div>
+
+					<div id="emp_block_delete" style="display:none">
+					</div>
+						
+					<div id="cook_block_delete" style="display:none">
+					</div>
+						
+					<div id="cs_block_delete" style="display:none">
+					</div>
+
+					<div id="sg_block_delete" style="display:none">	
+					</div>
+					
+			</div>
+			</center>
+		</div>
+	</div>
+	<br><br>
+	<!--  End Modal -->
+	<footer class="footer ">
+		<div class="container">
+			<div class="copyright pull-right">
+				&copy;
+				<script>
+					document.write(new Date().getFullYear())
+				</script>, made with <i class="material-icons">favorite</i> by
+				<a href="#">Aakash and Nitin</a> for a better web.
+			</div>
+		</div>
+	</footer>
+
+	<script id="emp-form-template" type="text/template">
+		<input type="text" name="emp_name" style="color:black" placeholder="Name..."><br><br>
+		<select name='emp_designation'>
+			<option value="" selected>Select your option</option>
+			<option value="Cook">Cook</option>
+			<option value="Cleaning Staff">Cleaning Staff</option>
+			<option value="Security Guard">Security Guard</option>
+		</select><br><br>
+		<input type="number" name="emp_phone" style="color:black" placeholder="Phone number..."><br><br>
+		<input type="number" name="emp_salary" style="color:black" placeholder="Salary..."><br><br>
+		<button id='button-emp' onclick="subEmp(event)"></button>
+	</script>
+
+	<script id="cook-form-template" type="text/template">
+		<input type="text" name="cook_name" placeholder="Name..." style="color:black"><br><br>
+		<input type="text" name="cook_dish" placeholder="Dish..." style="color:black"><br><br>
+		<button id='button-cook' onclick="subCook(event)"></button>
+	</script>
+
+	<script id="cs-form-template" type="text/template">
+		<input type="text" name="cs_name" placeholder="Name..." style="color:black"><br><br>
+		<select name='cs_day'>
+			<option value="" selected>Select your option</option>
+			<option value="Monday">Monday</option>
+			<option value="Tuesday">Tuesday</option>
+			<option value="Wednesday">Wednesday</option>
+			<option value="Thursday">Thursday</option>
+			<option value="Friday">Friday</option>
+			<option value="Saturday">Saturday</option>
+			<option value="Sunday">Sunday</option>
+		</select><br><br>
+		<select name='cs_mealtime'>
+			<option value="" selected>Select your option</option>
+			<option value="Breakfast">Breakfast</option>
+			<option value="Lunch">Lunch</option>
+			<option value="Dinner">Dinner</option>
+		</select><br><br>
+		<button id='button-cs' onclick="subCS(event)"></button>
+	</script>
+
+	<script id="sg-form-template" type="text/template">
+		<input type="text" name="sg_name" placeholder="Name..." style="color:black"><br><br>
+		<select name='sg_day'>
+			<option value="" selected>Select your option</option>
+			<option value="Monday">Monday</option>
+			<option value="Tuesday">Tuesday</option>
+			<option value="Wednesday">Wednesday</option>
+			<option value="Thursday">Thursday</option>
+			<option value="Friday">Friday</option>
+			<option value="Saturday">Saturday</option>
+			<option value="Sunday">Sunday</option>
+		</select><br><br>
+		<input type="number" name="sg_gate_no" placeholder="Gate no..." style="color:black"><br><br>
+		<button id='button-sg' onclick="subSG(event)"></button>
+	</script>
+
+	<!--   Core JS Files   -->
+	<script src="socket.io/socket.io.js"></script>
+	<script src="./assets/js/jquery-3.2.1.min.js"></script>
+	<script src="./assets/js/core/popper.min.js"></script>
+	<script src="./assets/js/bootstrap-material-design.js"></script>
+	<!--  Plugin for Date Time Picker and Full Calendar Plugin  -->
+	<script src="./assets/js/plugins/moment.min.js"></script>
+	<!--	Plugin for the Datepicker, full documentation here: https://github.com/Eonasdan/bootstrap-datetimepicker -->
+	<script src="./assets/js/plugins/bootstrap-datetimepicker.min.js"></script>
+	<!--	Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
+	<script src="./assets/js/plugins/nouislider.min.js"></script>
+	<!-- Material Kit Core initialisations of plugins and Bootstrap Material Design Library -->
+	<script src="./assets/js/material-kit.js?v=2.0.2"></script>
+	<!-- Fixed Sidebar Nav - js With initialisations For Demo Purpose, Don't Include it in your project -->
+	<script src="./assets/assets-for-demo/js/material-kit-demo.js"></script>
+	<script src="./assets/js/mustache.js"></script>
+	<script src="./assets/js/utils.js"></script>
+	<script>
+		// $(document).ready(function() {
+		// 	materialKit.initFormExtendedDatetimepickers();
+		// 	materialKit.initSliders();
+		// });
+		var modal = document.getElementById("myModal");
+		
+		// Get the <span> element that closes the modal
+		var span = document.getElementsByClassName("close")[0];
+
+		// When the user clicks on <span> (x), close the modal
+		span.onclick = function() {
+			modal.style.display = "none";
+		}
+
+		// When the user clicks anywhere outside of the modal, close it
+		window.onclick = function(event) {
+			if (event.target == modal) {
+				modal.style.display = "none";
+			}
+		}
+	</script>
+</body>
+
+</html>

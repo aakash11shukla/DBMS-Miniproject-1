@@ -1,0 +1,62 @@
+<html>
+	<head>
+		<title>DBMS Project-1</title>
+	</head>
+
+	<body>
+		<button id='insert'>Insert</button>&emsp;
+		<button id='search'>Search</button>&emsp;
+		<button id='update'>Update</button>&emsp;
+		<button id='delete'>Delete</button>&emsp;
+
+		<div id="myDIV" style="display:none">
+					
+					<div id="emp_block_insert" style="display:none;float:center">
+						<h3><b><u>Employee's Details</u></b></h3>
+						<br>
+						<form id="emp_form_insert">
+							<input type="text" name="emp_name" style="color:black" placeholder="Name.." required autocomplete="off" autofocus><br><br><br>
+							<input type="text" name="emp_designation" style="color:black" placeholder="Designation.." required><br>
+							<input type="number" name="emp_phone" style="color:black" placeholder="Phone no.." required><br><br>
+							<input type="number" name="emp_salary" style="color:black" placeholder="Salary.." required><br><br>
+							<input type="submit" name="submit" value="insert1">
+						</form>
+					</div>
+						
+					<div id="cook_block_insert" style="display:none;float:center">
+						<h3><b><u>Cook's Details</u></b></h3><br>
+						<form id="cook_form_insert">
+							<input type="text" name="cook_name" style="color:black"><br>
+							<input type="text" name="cook_dish"  style="color:black"><br>
+							<input type="submit" name="submit" value="insert">
+						</form>
+					</div>
+						
+					<div id="cleaning_block_insert" style="display:none;float:center">
+						<h3><b><u>Cleaning staff's Details</u></b></h3><br>
+						<form id="cleaning_form_insert">
+							<input type="text" name="cleaning_name" style="color:black"><br>
+							<input type="text" name="cleaning_mealtime"  style="color:black"><br><br>
+							<input type="text" name="cleaning_day" style="color:black"><br>
+							<input type="submit" name="submit" value="insert">
+						</form>
+					</div>
+
+					<div id="secure_block_insert" style="display:none;float:center">
+						<h3><b><u>Security_staff's Details</u></b></h3>
+						<br>
+						<form id="secure_form_insert">
+							<input type="text" name="secure_name" style="color:black"><br>
+							<input type="text" name="secure_salary" style="color:black"><br>
+							<input type="submit" name="submit" value="insert">
+						</form>
+					</div>
+
+				</div>
+
+	<script src="socket.io/socket.io.js"></script>
+	<script src="/assets/js/jquery-3.2.1.min.js"></script>
+	<script src="/assets/js/utils.js"></script>
+	
+	</body>
+</html>
